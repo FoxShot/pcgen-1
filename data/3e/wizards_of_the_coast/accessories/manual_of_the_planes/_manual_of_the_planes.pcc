@@ -5,5 +5,5 @@ TYPE:Wizards of the Coast.Accessory
 STATUS:ALPHA
 #TODO: Verify abbr for this book.
 
-ABILITY:MP_abilities.lst
-TEMPLATE:MP_templates.lst
+ABILITY:mp_abilities.lst
+TEMPLATE:mp_templates.lst
