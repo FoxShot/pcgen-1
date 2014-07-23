@@ -2,6 +2,7 @@
 CAMPAIGN:Champions of Valor
 GAMEMODE:35e|Bahamut35e
 TYPE:Wizards of the Coast.Campaign Setting.Forgotten Realms
+PRECAMPAIGN:1,INCLUDES=Player's Guide to Faerun
 RANK:3
 SOURCELONG:Champions of Valor
 SOURCESHORT:CV
@@ -11,7 +12,7 @@ COPYRIGHT:Champions of Valor - Wizards of the Coast (November 2005)
 STATUS:ALPHA
 INFOTEXT:Champions of Valor add-ons
 
-
+ABILITY:cv_abilities.lst
 EQUIPMENT:cv_equip.lst
 EQUIPMOD:cv_equipmods.lst
 FEAT:cv_feats.lst
