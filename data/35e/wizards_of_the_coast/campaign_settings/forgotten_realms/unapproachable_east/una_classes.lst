@@ -1,20 +1,19 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
-# TODO - Knowledge (Local) needs regionalising
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 # these are 35 skills/spell references only
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
-CLASS:Aglarondan Griffonrider	HD:8		TYPE:PC.Prestige	ABB:Gri		SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Aglarondan Griffonrider	HD:8		TYPE:PC.Prestige	ABB:Gri		SOURCEPAGE:p.18	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL				Required Feat					Multiple Requirements									Required Skill							PRETOTALAB
 CLASS:Aglarondan Griffonrider	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:2,Mounted Combat,Ride-by Attack	PREMULT:1,[PREREGION:Aglarond],[PRESKILL:1,Knowledge (Aglarond)=2]	PRESKILL:2,Diplomacy=5,Spot=5	PRESKILL:1,Ride=10	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Aglarondan Griffonrider	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Local)|Knowledge (Nobility)|Listen|TYPE=Profession|Ride|Sense Motive|Spot
+CLASS:Aglarondan Griffonrider	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=KnowledgeLocal|Knowledge (Nobility and Royalty)|Listen|TYPE=Profession|Ride|Sense Motive|Spot
 1																AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 3	BONUS:VAR|GriffonriderMountedCombat|(((CL-1)/2),3)	DEFINE:GriffonriderMountedCombat|0
 ###Block
 11	PREPCLEVEL:MIN=20
 
 # Class Name				Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus										Bonus
-CLASS:Ex-Aglarondan Griffonrider	HD:8		TYPE:PC.Prestige	ABB:XGri		SOURCEPAGE:p.18	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ex-Aglarondan Griffonrider	HD:8		TYPE:PC.Prestige	ABB:XGri		SOURCEPAGE:p.18	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Bonus
@@ -59,7 +58,7 @@ CLASS:Nar Demonbinder	HD:6		TYPE:PC.Prestige	ABB:Nar		MAXLEVEL:7	SOURCEPAGE:p.25
 # Class Name		Required Feat						Required Language	Required Skill														Req. Known Spell
 CLASS:Nar Demonbinder	PREFEAT:2,Iron Will,Spell Focus (Conjuration)	PRELANG:1,Abyssal	PRESKILL:1,Intimidate=5	PRESKILL:1,Knowledge (The Planes)=10	PRESKILL:1,Sense Motive=2	PRESPELL:1,Summon Monster I,Summon Monster II,Summon Monster III,Summon Monster IV,Summon Monster V,Summon Monster VI,Summon Monster VII,Summon Monster VIII,Summon Monster IX
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Nar Demonbinder	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Nar Demonbinder	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Nar Demonbinder	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Nar Demonbinder|CL
 1	CAST:0,0,0,0,2,1		KNOWN:0,0,0,0,3,1
@@ -89,45 +88,46 @@ CLASS:Raumathari Battlemage	HD:4		TYPE:PC.Prestige	ABB:Rau		SOURCEPAGE:p.29	BONU
 # Class Name			Required Feat												Required Text
 CLASS:Raumathari Battlemage	PREFEAT:3,Combat Casting,Exotic Weapon Proficiency (Bastard Sword),TYPE=Metamagic	PRETEXT:Able to read Roushoum and Imaskari script. Must find a mentor to study with.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Raumathari Battlemage	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Decipher Script|Knowledge (Arcana)|Knowledge (History)|TYPE=Profession|Ride|Spellcraft|Use Magic Device
+CLASS:Raumathari Battlemage	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Decipher Script|Knowledge (arcana)|Knowledge (History)|TYPE=Profession|Ride|Spellcraft|Use Magic Device
 #Need to make a feat for Battle Spell levels and Channel Spell Levels
 ###Block
 11	PREPCLEVEL:MIN=20
 
 ##################################################
 
-# Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										List of Class Spells by Level																																																																																																															Bonus
-CLASS:Runescarred Berserker	HD:10		TYPE:PC.Prestige	ABB:RuB		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Runescarred Berserker=1|Cure Moderate Wounds,Divine Favor,Low-Light Vision,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Resist Energy,See Invisibility,True Strike|Runescarred Berserker=2|Bear's Endurance,Bull's Strength,Cure Serious Wounds,Darkvision,Invisibility,Keen Edge,Protection from Energy|Runescarred Berserker=3|Air Walk,Cure Critical Wounds,Death Ward,Divine Power,Freedom of Movement,Haste,Magic Weapon (Greater)|Runescarred Berserker=4|Invisibility (Greater),Neutralize Poison,Restoration,Righteous Might,Spell Immunity,Stoneskin|Runescarred Berserker=5|Alter Self,Antimagic Field,Dimension Door,Heal,Spell Resistance	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Define					Combat bonus										Modify VAR						List of Class Spells by Level																																																																																																															Bonus
+CLASS:Runescarred Berserker	HD:10		TYPE:PC.Prestige	ABB:RuB		SOURCEPAGE:p.31	DEFINE:RunescarredBerserkerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|RunescarredBerserkerLVL|CL	SPELLLEVEL:CLASS|Runescarred Berserker=1|Cure Moderate Wounds,Divine Favor,Low-Light Vision,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Resist Energy,See Invisibility,True Strike|Runescarred Berserker=2|Bear's Endurance,Bull's Strength,Cure Serious Wounds,Darkvision,Invisibility,Keen Edge,Protection from Energy|Runescarred Berserker=3|Air Walk,Cure Critical Wounds,Death Ward,Divine Power,Freedom of Movement,Haste,Magic Weapon (Greater)|Runescarred Berserker=4|Invisibility (Greater),Neutralize Poison,Restoration,Righteous Might,Spell Immunity,Stoneskin|Runescarred Berserker=5|Alter Self,Antimagic Field,Dimension Door,Heal,Spell Resistance	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Feat					Multiple Requirements									Required Skill											Var. Must Be Grater	PRETOTALAB
 CLASS:Runescarred Berserker	PREFEAT:3,Iron Will,Survivor,TYPE.Lodge	PREMULT:1,[PREREGION:Rashemen],[PRESKILL:1,Knowledge (Rashemen)=2]	PRESKILL:2,Craft (Scarring)=5,Intimidate=5	PRESKILL:1,Sense Motive=2	PREVARGT:RageTimes,0	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Runescarred Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Sense Motive|Swim|Survival
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Runescarred Berserker	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Runescarred Berserker|CL
-1																																		ABILITY:Special Ability|AUTOMATIC|Runescarring
-1									BONUS:VAR|RageTimes|RunescarExtraRage
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,2
-1									BONUS:VAR|RunescarExtraRageLVL|CL=Runescarred Berserker
-1																				DEFINE:RageTimes|0	DEFINE:RunescarExtraRage|0	DEFINE:RunescarExtraRageLVL|0
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,5
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,9
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Scribe Runescar
+2	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Extra Rage
+3	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Ritual Scarring
+4	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Spawn of the Frost
+4	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Damage Reduction
+8	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Greater Rage
+###Block
 1	KNOWN:0,1
 2	KNOWN:0,2
 3	KNOWN:0,2,1
-4	KNOWN:0,3,2		DR:1/-
+4	KNOWN:0,3,2
 5	KNOWN:0,3,2,1
 6	KNOWN:0,3,3,2
-7	KNOWN:0,4,3,2,1			BONUS:DR|0|1
+7	KNOWN:0,4,3,2,1
 8	KNOWN:0,4,3,3,2
 9	KNOWN:0,4,4,3,2,1
-10	KNOWN:0,4,4,3,3,2			BONUS:DR|0|1
+10	KNOWN:0,4,4,3,3,2
 ###Block
 11	PREPCLEVEL:MIN=20
 
 ######################################################################
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
-CLASS:Shou Disciple	HD:10		TYPE:PC.Prestige	ABB:ShD		MAXLEVEL:5	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Shou Disciple	HD:10		TYPE:PC.Prestige	ABB:ShD		MAXLEVEL:5	SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Check Base	Required Feat										Multiple Requirements																	Required Skill						PRETOTALAB
 CLASS:Shou Disciple	PRECHECKBASE:1,Reflex=2	PREFEAT:3,Dodge,Improved Unarmed Strike,Weapon Focus (Unarmed Strike)	PREMULT:1,[PREREGION:Shou Expatriate],[PREREGION:Thesk],[PRESKILL:1,Knowledge (Shou Expatriate)=2,Knowledge (Thesk)=2]	PRESKILL:2,Balance=4,Tumble=4	PRESKILL:1,Jump=8	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -144,7 +144,7 @@ CLASS:Talontar Blightlord	HD:8		TYPE:PC.Prestige	ABB:Tal		SOURCEPAGE:p.34	BONUS:
 # Class Name			Required AL		Required Feat
 CLASS:Talontar Blightlord	PREALIGN:LE,NE,CE	PREFEAT:1,Great Fortitude
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Talontar Blightlord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Spellcraft|Spot|Survival
+CLASS:Talontar Blightlord	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Hide|TYPE=KnowledgeLocal|Knowledge (Nature)|Listen|TYPE=Profession|Spellcraft|Spot|Survival
 1	DOMAIN:Blightbringer	BONUS:DOMAIN|NUMBER|1
 3									BONUS:VAR|Blighttouch|(BlighttouchLVL-1)/2	BONUS:VAR|BlighttouchLVL|CL=Talontar Blightlord	DEFINE:Blighttouch|0	DEFINE:BlighttouchLVL|0
 10																																	TEMPLATE:Plant

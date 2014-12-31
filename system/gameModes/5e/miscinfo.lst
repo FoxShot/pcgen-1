@@ -56,22 +56,20 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:ABILITIES	NAME:in_abilities_tabname	CONTEXT:tabpages\players\tabability.html
-TAB:CAMPAIGNS	NAME:Source Materials	CONTEXT:tabpages\source\sourcesectionheading.html
-TAB:CLASS	NAME:in_class		CONTEXT:tabpages\tabclasses.html
+TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS	NAME:in_domains		CONTEXT:tabpages\tabdomains.html
-TAB:FEATS	NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
-TAB:INVENTORY	NAME:in_inventory	CONTEXT:tabpages\tabinventory.html
-TAB:RACE	NAME:in_race		CONTEXT:tabpages\tabraces.html
-TAB:SKILLS	NAME:in_skills		CONTEXT:tabpages\tabskills.html
-TAB:SPELLS	NAME:in_spells		CONTEXT:tabpages\tabspells.html
-TAB:SUMMARY	NAME:in_summary		CONTEXT:tabpages\tabsummary.html
+TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:GEAR	NAME:in_InfoGear	CONTEXT:tabpages\tabinventory.html
+TAB:PURCHASE	NAME:in_purchase		CONTEXT:tabpages\tabinventory.html
 TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
-TAB:RESOURCES	NAME:in_InfoResources	CONTEXT:tabpages\tabcompanions.html
-TAB:TEMPMOD	NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
+TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
+TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
@@ -85,27 +83,27 @@ ALLOWEDMODES:5e|DnD Next
 #  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
 # Integer value, defaults to zero if tag not present to allow GameModes
 # without shortrange bonus/limitations
-SHORTRANGE:30
+#SHORTRANGE:30
 #
 # RANGEPENALTY sets the modification of the to-hit value for
 # each range increment after the first.
 # Integer value, defaults to zero if tag not present to allow GameModes
 # without range increment bonus/limitations
-RANGEPENALTY:-2
+RANGEPENALTY:0
 
 # SQUARESIZE defines the size of a battlemap square in feet.
 SQUARESIZE:5
 
 #SPELLRANGExxx specifies the formula used to compute spell ranges
 #The formula is evaluated by the PlayerCharacter.getVariableValue() routine
-SPELLRANGE:CLOSE|floor(CASTERLEVEL/2)*5+25
-SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
-SPELLRANGE:LONG|(CASTERLEVEL*40)+400
+#SPELLRANGE:CLOSE|floor(CASTERLEVEL/2)*5+25
+#SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
+#SPELLRANGE:LONG|(CASTERLEVEL*40)+400
 
 #SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
 #e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
 SKILLMULTIPLIER:0
-SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+SPELLBASEDC:8+Proficiency_Bonus+BASESPELLSTAT
 
 #BONUSFEATLEVELSTARTINTERVAL:level|interval
 #level = first level where you gain an additional feat
@@ -119,7 +117,7 @@ SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
 #level = first level where you gain an additional stat
 # (use more than one of these tags for additional stat)
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
-BONUSSTATLEVELSTARTINTERVAL:4|4|2
+#BONUSSTATLEVELSTARTINTERVAL:4|4|2
 
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
@@ -149,10 +147,11 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE		ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL
+ACTYPE:Total				ADD:TOTAL		REMOVE:Ability|Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:Base					ADD:Base
+# Not Used for AC total
 ACTYPE:Armor				ADD:Armor|ArmorEnhancement
 ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
 ACTYPE:Shield				ADD:Shield|ShieldEnhancement
@@ -194,19 +193,26 @@ WEAPONTYPE:Piercing|P
 WEAPONTYPE:Slashing|S
 WEAPONTYPE:Fire|F
 WEAPONTYPE:Acid|A
-WEAPONTYPE:Electricity|E
+WEAPONTYPE:Lightning|L
 WEAPONTYPE:Cold|C
 WEAPONTYPE:Poison|Po
-WEAPONTYPE:Sonic|So
+WEAPONTYPE:Necrotic|Nec
+WEAPONTYPE:Force|Fo
+WEAPONTYPE:Psychic|Psy
+WEAPONTYPE:Radiant|Ra
+WEAPONTYPE:Thunder|Th
+
+
+
+
 
 # Weapon proficiency categories
 WEAPONCATEGORY:Simple
 WEAPONCATEGORY:Martial
-WEAPONCATEGORY:Exotic
 WEAPONCATEGORY:Natural
 
 # Non-proficient penalty
-WEAPONNONPROFPENALTY:-4
+WEAPONNONPROFPENALTY:0
 
 # Number of hands required to wield weapon categories
 #									Object Size difference
@@ -240,7 +246,7 @@ WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
+#WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
